@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  /* Definindo as cores da marca Daniel Camaforte para o Tailwind v4 */
+  --color-primary: #e3cb85;   /* Ocre */
+  --color-secondary: #606f95; /* Azul Profundo */
+  --color-accent: #b38b4d;    /* Ocre Escuro */
+  --color-neutral: #fcfaf6;   /* Off-white */
+  
+  /* Configurando as fontes */
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+/* Aplicando os estilos globais */
+body {
+  background-color: var(--color-neutral);
+  color: var(--color-secondary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
