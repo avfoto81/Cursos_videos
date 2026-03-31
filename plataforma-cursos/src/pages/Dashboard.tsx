@@ -104,7 +104,7 @@ const Dashboard = () => {
                                         <span className="text-[10px] text-white/70 font-medium uppercase tracking-tighter flex items-center gap-1">
                                             <Clock className="w-3 h-3" /> {course.sessions}
                                         </span>
-                                        {course.progress > 0 && (
+                                        {course.progress !== undefined && course.progress > 0 && (
                                             <span className="text-[10px] bg-primary/20 text-primary px-2 py-0.5 rounded-md border border-primary/30">
                                                 {course.progress}%
                                             </span>
@@ -112,7 +112,7 @@ const Dashboard = () => {
                                     </div>
 
                                     {/* Barra de Progresso Minimalista Neon */}
-                                    {!course.locked && course.progress > 0 && (
+                                    {!course.locked && course.progress !== undefined && course.progress > 0 && (
                                         <div className="mt-4 w-full h-1 bg-white/10 rounded-full overflow-hidden">
                                             <div
                                                 className="h-full bg-primary shadow-[0_0_8px_rgba(227,203,133,0.8)] transition-all duration-1000 ease-out"
