@@ -15,7 +15,7 @@ const courses: Course[] = [
     { id: 2, title: "Equilíbrio Emocional", sessions: "08 aulas", image: "/capas/Daniel_02.png", tag: "Inteligência", progress: 10 },
     { id: 3, title: "Relacionamentos Saudáveis", sessions: "15 aulas", image: "/capas/Daniel_03.png", tag: "Social", progress: 0 },
     { id: 4, title: "Foco e Produtividade", sessions: "12 aulas", image: "/capas/Daniel_04.png", tag: "Performance", progress: 0 },
-    { id: 5, title: "Espiritualidade", sessions: "12 aulas", image: "/capas/Daniel_02.png", tag: "Espiritualidade", progress: 0 },
+    { id: 5, title: "Ciências da Espiritualidade", sessions: "12 aulas", image: "/capas/Daniel_05.png", tag: "Ciências da Espiritualidade", progress: 0 },
 ];
 
 const Dashboard = () => {
