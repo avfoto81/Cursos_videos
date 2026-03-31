@@ -1,7 +1,7 @@
 import { Play, Clock, ChevronRight } from 'lucide-react';
 
 const courses = [
-  { id: 1, title: "Vencendo a Ansiedade", sessions: "12 aulas", image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=600&h=900", tag: "Mindfulness" },
+  { id: 1, title: "Vencendo a Ansiedade", sessions: "07 aulas", image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=600&h=900", tag: "Mindfulness" },
   { id: 2, title: "Equilíbrio Emocional", sessions: "08 aulas", image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=600&h=900", tag: "Inteligência" },
   { id: 3, title: "Relacionamentos Saudáveis", sessions: "15 aulas", image: "https://images.unsplash.com/photo-1516534775068-ba3e84529519?auto=format&fit=crop&q=80&w=600&h=900", tag: "Social" },
   { id: 4, title: "Foco e Produtividade", sessions: "10 aulas", image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=600&h=900", tag: "Performance" },
