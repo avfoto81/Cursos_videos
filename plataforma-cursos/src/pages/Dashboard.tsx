@@ -1,4 +1,5 @@
-import { Play, Clock, ChevronRight, Lock } from 'lucide-react'; // 1. Adicionado o Lock aqui
+import { Play, Clock, ChevronRight, Lock } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface Course {
     id: number;
@@ -32,9 +33,9 @@ const Dashboard = () => {
                 </div>
             </header>
 
-            {/* Destaque (Banner Principal Estilo Streamer) */}
+            {/* Destaque */}
             <section className="px-8 mb-16">
-                <div className="relative h-[450px] w-full rounded-3xl overflow-hidden shadow-2xl group">
+                <div className="relative h-[450px] w-full rounded-3xl overflow-hidden shadow-2xl group cursor-pointer">
                     <img
                         src="/van_gogh.jpg"
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -52,22 +53,25 @@ const Dashboard = () => {
                 </div>
             </section>
 
-            {/* Trilhas de Cursos (Vertical Cards) */}
+            {/* Trilhas de Cursos */}
             <section className="px-8 space-y-8">
                 <div className="flex justify-between items-end">
                     <h3 className="text-2xl font-serif text-secondary font-medium">Meus Cursos</h3>
                     <a href="#" className="text-primary font-semibold text-sm flex items-center hover:underline">Ver tudo <ChevronRight className="w-4 h-4" /></a>
                 </div>
 
-                {/* Grid de Cards Verticais */}
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
                     {courses.map((course) => (
-                        <div key={course.id} className="group relative flex flex-col cursor-pointer">
-                            {/* Container da Imagem com Sombra e Bordas Arredondadas */}
+                        <Link 
+                            to={course.locked ? "#" : `/course/${course.id}`} 
+                            key={course.id} 
+                            className={`group relative flex flex-col ${course.locked ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+                        >
+                            {/* Container da Imagem */}
                             <div className="relative aspect-[2/3] rounded-[2rem] overflow-hidden bg-secondary/5 
-                    shadow-[0_8px_30px_rgb(0,0,0,0.12)] 
-                    group-hover:shadow-[0_20px_50px_rgba(227,203,133,0.3)] 
-                    transition-all duration-500 group-hover:-translate-y-2 border border-white/20">
+                                shadow-[0_8px_30px_rgb(0,0,0,0.12)] 
+                                group-hover:shadow-[0_20px_50px_rgba(227,203,133,0.3)] 
+                                transition-all duration-500 group-hover:-translate-y-2 border border-white/20">
 
                                 <img
                                     src={course.image}
@@ -75,17 +79,17 @@ const Dashboard = () => {
                                     className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${course.locked ? 'grayscale opacity-50' : ''}`}
                                 />
 
-                                {/* Overlay de Gradiente Moderno (Escurece apenas a base para o título) */}
+                                {/* Overlay de Gradiente */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
 
-                                {/* Tag de Categoria com Estilo "Glassmorphism" */}
+                                {/* Tag de Categoria */}
                                 <div className="absolute top-4 left-4">
                                     <span className="bg-white/20 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1.5 rounded-full border border-white/30 tracking-widest uppercase">
                                         {course.tag}
                                     </span>
                                 </div>
 
-                                {/* Ícone de Play Central que "Pulsa" no Hover */}
+                                {/* Ícone de Play */}
                                 {!course.locked && (
                                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 scale-50 group-hover:scale-100">
                                         <div className="w-16 h-16 bg-primary/90 text-white rounded-full flex items-center justify-center shadow-2xl backdrop-blur-sm">
@@ -94,7 +98,7 @@ const Dashboard = () => {
                                     </div>
                                 )}
 
-                                {/* Título e Progresso DENTRO da capa (Visual Moderno) */}
+                                {/* Título e Info */}
                                 <div className="absolute bottom-0 left-0 w-full p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                                     <h4 className="font-serif text-xl text-white font-bold leading-tight drop-shadow-md">
                                         {course.title}
@@ -111,7 +115,7 @@ const Dashboard = () => {
                                         )}
                                     </div>
 
-                                    {/* Barra de Progresso Minimalista Neon */}
+                                    {/* Barra de Progresso */}
                                     {!course.locked && course.progress !== undefined && course.progress > 0 && (
                                         <div className="mt-4 w-full h-1 bg-white/10 rounded-full overflow-hidden">
                                             <div
@@ -122,14 +126,14 @@ const Dashboard = () => {
                                     )}
                                 </div>
 
-                                {/* Overlay para Vídeos Bloqueados */}
+                                {/* Overlay para Bloqueados */}
                                 {course.locked && (
                                     <div className="absolute inset-0 flex items-center justify-center bg-secondary/20 backdrop-blur-[2px]">
                                         <Lock className="text-white/80 w-8 h-8" />
                                     </div>
                                 )}
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </section>
